@@ -4,7 +4,6 @@ module.exports = function(grunt) {
   var PATH_ASSETS_JS = 'js/';
   var PATH_ASSETS_CSS = 'css/';
   var PATH_DEPLOY_ASSETS = 'public/';
-  var PATH_DEPLOY_JS = PATH_DEPLOY_ASSETS + '/js/<%= pkg.name %>.min.js';
 
   // ==========================================================================
   // Project configuration
@@ -67,7 +66,7 @@ module.exports = function(grunt) {
       },
       my_target: {
         files: {
-          PATH_DEPLOY_JS: 'js/*.js'
+          'public/js/<%= pkg.name %>.min.js': 'js/*.js'
         }
       }
     }
