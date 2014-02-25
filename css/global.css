@@ -2,12 +2,12 @@ html {
     height: 100% ;
     font-family: "Verdana";
 }
-body { 
+body {
     position: relative;
     height: 100%;
     width: 100%;
-    margin: 0; 
-    padding: 0; 
+    margin: 0;
+    padding: 0;
     /*overflow-y: hidden;*/
     /*background: linear-gradient(#999, #666);*/
 }
@@ -191,10 +191,6 @@ body {
     width: 520px;
     padding: 0px 15px;
     vertical-align: top;
-}
-
-.search-area, .search-results-area{
-    /*display: inline-block;*/
 }
 
 .panel-with-tab{
