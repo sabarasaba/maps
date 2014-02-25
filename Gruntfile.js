@@ -69,18 +69,32 @@ module.exports = function(grunt) {
           'public/js/<%= pkg.name %>.min.js': 'js/*.js'
         }
       }
+    },
+
+    watch: {
+      assets: {
+        files: [
+          PATH_ASSETS_CSS + '/*.css',
+          PATH_ASSETS_JS + '/*.js',
+          'index.html'
+        ],
+        tasks: ['jshint:all', 'csslint:lax', 'concat', 'cssmin', 'uglify'],
+        options: {
+          livereload: true
+        }
+      }
     }
   });
-
 
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-csslint');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-css');
 
   grunt.registerTask('default', 'build:dev');
 
-  grunt.registerTask('build:dev', ['clean', 'jshint:all', 'csslint:lax', 'concat', 'cssmin', 'uglify']);
+  grunt.registerTask('build:dev', ['clean', 'jshint:all', 'csslint:lax', 'concat', 'cssmin', 'uglify', 'watch:assets']);
 };
