@@ -4,6 +4,7 @@ module.exports = function(grunt) {
   var PATH_ASSETS_JS = 'js/';
   var PATH_ASSETS_CSS = 'css/';
   var PATH_DEPLOY_ASSETS = 'public/';
+  var PATH_DEPLOY_JS = PATH_DEPLOY_ASSETS + '/js/<%= pkg.name %>.min.js';
 
   // ==========================================================================
   // Project configuration
@@ -26,7 +27,16 @@ module.exports = function(grunt) {
       lax: {
         rules: {
           'box-sizing': false,
-          'adjoining-classes': false
+          'adjoining-classes': false,
+          'ids': false,
+          'font-sizes': false,
+          'unique-headings': false,
+          'qualified-headings': false,
+          'compatible-vendor-prefixes': false,
+          'box-model': false,
+          'known-properties': false,
+          'fallback-colors': false,
+          'zero-units': false
         },
         src: [
           PATH_ASSETS_CSS + '/*.css'
@@ -57,8 +67,7 @@ module.exports = function(grunt) {
       },
       my_target: {
         files: {
-          src: PATH_ASSETS_JS + '/*.js',
-          dest: PATH_DEPLOY_ASSETS + '/js/<%= pkg.name %>.min.js'
+          PATH_DEPLOY_JS: 'js/*.js'
         }
       }
     }
