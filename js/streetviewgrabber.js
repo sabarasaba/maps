@@ -132,9 +132,9 @@ function StreetViewGrabber(){
 
         //gather all points along route
         var pointsArray = [];
-        for(var i = 0, len = path.routes[0].legs[0].steps.length; i < len; i++){
-            for (var j = 0, len2 = path.routes[0].legs[0].steps[i].lat_lngs.length; j < len2; j++){
-                pointsArray.push(path.routes[0].legs[0].steps[i].lat_lngs[j]);
+        for(var x = 0, len = path.routes[0].legs[0].steps.length; x < len; x++){
+            for (var j = 0, len2 = path.routes[0].legs[0].steps[x].lat_lngs.length; j < len2; j++){
+                pointsArray.push(path.routes[0].legs[0].steps[x].lat_lngs[j]);
             }
         }
 
