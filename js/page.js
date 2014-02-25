@@ -191,17 +191,17 @@ $(document).ready(function(){
         setPageHeight();
         if ($(window).width() <= MOBILE_WIDTH){
             mobile = true;
-            if (parseInt($('.panel-with-tab').css('left')) == -570){
+            if (parseInt($('.panel-with-tab').css('left'), 10) === -570){
                 $('.panel-with-tab').css('left', -280);
             }
         } else {
             mobile = false;
-            if (parseInt($('.panel-with-tab').css('left')) == -280){
+            if (parseInt($('.panel-with-tab').css('left'), 10) === -280){
                 $('.panel-with-tab').css('left', -570);
             }
         }
     });
-    $('body').bind('touchmove', function(e) { 
+    $('body').bind('touchmove', function() {
         $(document).scroll();
     });
 
@@ -213,7 +213,7 @@ $(document).ready(function(){
             currImage = getCurrImage();
 
             //If calculated image is different from currently displayed image, update image
-            if (currImage != displayedImage){
+            if (currImage !== displayedImage){
                 updateDisplayedImage(currImage);
                 updateMarker(currImage);
                 displayedImage = currImage;
@@ -288,14 +288,14 @@ function updateMarker(currImg){
 function togglePanel(){
     if (!mobile){
         $('.panel-with-tab').animate({
-            'left': parseInt($('.panel-with-tab').css('left'), 10)==0 ? '-=570px' : '+=570px'
-            }, 
+            'left': parseInt($('.panel-with-tab').css('left'), 10) === 0 ? '-=570px' : '+=570px'
+            },
             300
         );
     } else {
         $('.panel-with-tab').animate({
-            'left': parseInt($('.panel-with-tab').css('left'), 10)==0 ? '-=280px' : '+=280px'
-            }, 
+            'left': parseInt($('.panel-with-tab').css('left'), 10) === 0 ? '-=280px' : '+=280px'
+            },
             300
         );
     }
@@ -376,7 +376,7 @@ function toggleMinimapHider(){
 function toggleNav(){
     var miniMapDisplayed = $('#minimap-container').css('display');
     //If minimap is currently displayed...
-    if (miniMapDisplayed == 'block'){
+    if (miniMapDisplayed === 'block'){
         //Show about
         $('#minimap-container').css('display', 'none');
         $('#about-container').css('display', 'block');
@@ -392,7 +392,7 @@ function toggleNav(){
 }
 
 function togglePanorama(){
-    if ( $('#pano-display').css('display') == 'none'){
+    if ( $('#pano-display').css('display') === 'none'){
         $('#pano-display').css('display', 'block');
         var location = streetVG.getLatLng(currImage-1);
         panoDisplay.setPosition(location);
@@ -410,5 +410,5 @@ function togglePanorama(){
 
 function toggleBlocker(){
     var val = $('#blocker').css('display');
-    $('#blocker').css('display', (val=='none' ? 'block' : 'none'));
+    $('#blocker').css('display', (val === 'none' ? 'block' : 'none'));
 }
