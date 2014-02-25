@@ -30,4 +30,5 @@ Icon
 .Trashes
 
 #-- Project ------------------------------------
-node_modules
+node_modules/
+public/
